@@ -3,7 +3,7 @@ import { describe, expect, it, vi } from 'vitest'
 import { render, waitFor } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
 import { StrictMode } from 'react'
-import { useForm } from '../src/index'
+import { useField, useForm } from '../src/index'
 import { sleep } from './utils'
 import type { FieldApi, FormApi } from '../src/index'
 
@@ -23,6 +23,8 @@ describe('useField', () => {
           lastName: 'LastName',
         } as Person,
       })
+
+      const firstName = useField({ form, name: 'FirstName' })
 
       return (
         <>
